@@ -2,7 +2,7 @@
 // @name         UFEdge Player
 // @namespace    http://github.com/vaibhav-y/gator_grease
 // @require      http://code.jquery.com/jquery-latest.js
-// @version      0.2.0
+// @version      0.2.1
 // @description  A better UFEdge video player
 // @author       Vaibhav Yenamandra
 // @match        *://www.ufedge.ufl.edu/*
@@ -45,7 +45,7 @@
     $(".edgeplayer_link").on("click", function() {
         $('.lecture_video').remove();
         var video = $('<video />', {
-            "class": "lecture_video",
+            "id": "lecture_video",
             src: $(this).attr("data-video"),
             type: 'video/mp4',
             controls: true
@@ -56,7 +56,6 @@
 
         // Minor formatting & arrangement
         $("#metacontainer > i").before(video);
-        $("metacontainer > video").after("<br/>");
     });
 
     // Some final styling. Mainly fixing the #metacontainr width
@@ -69,5 +68,42 @@
         "float": "none",
         "display": "block",
         "clear": "both"
+    });
+
+    // Bind keys for play, pause and seeking
+    // Key up / down = volume up / down
+    // Spacebar = play / pause
+    $(document).bind("keydown", "keypress", function(e) {
+        e.preventDefault();
+        var video = $("#lecture_video")[0];
+
+        switch(e.keyCode) {
+            // Spacebar
+            case 32:
+                if(video.paused) {
+                    video.play();
+                }
+                else {
+                    video.pause();
+                }
+                return false;
+            // Up
+            case 38:
+                if(video.volume < 0.9) {
+                    video.volume = video.volume + 0.1;
+                } else {
+                    video.volume = 1.0;
+                }
+                return false;
+            // Down
+            case 40:
+                if(video.volume > 0.1) {
+                    video.volume = video.volume - 0.1;
+                }
+                else {
+                    video.volume = 0.0;
+                }
+                return false;
+        }
     });
 })();
