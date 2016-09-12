@@ -15,7 +15,7 @@ Navigate to the specific script you want to install. All of them (I think) come 
 I've only tested this on Google Chrome for Windows (Version 52.0.2743.82 m), but it should work on all major browsers that support userscripts.
 
 ## Contribute!
-If you want to add some emojis or features to this, feel free to drop in a pull request. Bonus points if you have topic branches and legible code!
+If you want to add some features to the scripts hosted, feel free to drop in a pull request. Bonus points if you have topic branches and legible code!
 
 ## License
 Standard MIT license. See LICENSE.md
