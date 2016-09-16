@@ -2,7 +2,7 @@
 // @name         UFEdge Player
 // @namespace    http://github.com/vaibhav-y/gator_grease
 // @require      http://code.jquery.com/jquery-latest.js
-// @version      0.2.1
+// @version      0.2.2
 // @description  A better UFEdge video player
 // @author       Vaibhav Yenamandra
 // @match        *://www.ufedge.ufl.edu/*
@@ -43,7 +43,7 @@
     // Add an onclick handler to create a video element somewhere in the middle 
     // of the page for better visibility
     $(".edgeplayer_link").on("click", function() {
-        $('.lecture_video').remove();
+        $('#lecture_video').remove();
         var video = $('<video />', {
             "id": "lecture_video",
             src: $(this).attr("data-video"),
@@ -78,7 +78,7 @@
         var video = $("#lecture_video")[0];
 
         switch(e.keyCode) {
-            // Spacebar
+                // Spacebar
             case 32:
                 if(video.paused) {
                     video.play();
@@ -87,7 +87,7 @@
                     video.pause();
                 }
                 return false;
-            // Up
+                // Up
             case 38:
                 if(video.volume < 0.9) {
                     video.volume = video.volume + 0.1;
@@ -95,7 +95,7 @@
                     video.volume = 1.0;
                 }
                 return false;
-            // Down
+                // Down
             case 40:
                 if(video.volume > 0.1) {
                     video.volume = video.volume - 0.1;
